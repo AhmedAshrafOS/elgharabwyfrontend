@@ -7,6 +7,9 @@ import cardone from '../assets/cards/cardone.jpg';
 import cardtwo from '../assets/cards/cardtwo.jpg';
 import cardthree from '../assets/cards/cardthree.jpg';
 import cardfour from '../assets/cards/cardfour.jpg';
+import cardfive from '../assets/cards/cardfive.jpg';
+import cardsix from '../assets/cards/cardsix.jpg';
+import cardseven from '../assets/cards/cardseven.jpg';
 import sectionMid from '../assets/section-img.png';
 
 
@@ -16,13 +19,13 @@ function ServicesCards() {
 
   // Data for cards
   const cards = [
-    { id: 1, image: cardone, title: 'serviceOne', description: 'serviceOneSecond' },
-    { id: 2, image: cardtwo, title: 'serviceTwo', description: 'serviceTwoSecond' },
-    { id: 3, image: cardthree, title: 'serviceThree', description: 'serviceThreeSecond' },
-    { id: 4, image: cardfour, title: 'serviceFour', description: 'serviceFourSecond' },
-    { id: 5, image: cardone, title: 'serviceFive', description: 'serviceFiveSecond' },
-    { id: 6, image: cardtwo, title: 'serviceSix', description: 'serviceSixSecond' },
-    { id: 7, image: cardfour, title: 'serviceSeven', description: 'serviceSevenSecond' },
+    { id: 1, image: cardseven, title: 'serviceOne', description: 'serviceOneSecond' },
+    { id: 2, image: cardone, title: 'serviceTwo', description: 'serviceTwoSecond' },
+    { id: 3, image: cardfour, title: 'serviceThree', description: 'serviceThreeSecond' },
+    { id: 4, image: cardthree, title: 'serviceFour', description: 'serviceFourSecond' },
+    { id: 5, image: cardtwo, title: 'serviceFive', description: 'serviceFiveSecond' },
+    { id: 6, image: cardfive, title: 'serviceSix', description: 'serviceSixSecond' },
+    { id: 7, image: cardsix, title: 'serviceSeven', description: 'serviceSevenSecond' },
   ];
 
   return (
@@ -84,7 +87,7 @@ function ServicesCards() {
           <Grid
             item
             key={card.id}
-            xs={6} // 1 card in extra small screens
+            xs={12} // 1 card in extra small screens
             sm={4}  // 3 cards in small screens
             md={3}  // 4 cards in medium and larger screens
           >
@@ -107,7 +110,7 @@ function ServicesCards() {
                     variant="h5"
                     component="div"
                     sx={{
-                      fontSize: { xs: '.9rem', md: '1.5rem' },
+                      fontSize: { xs: '1.0rem', md: '1.5rem' },
                       textAlign: 'center',
                     }}
                   >
@@ -129,7 +132,7 @@ function ServicesCards() {
                         color: 'text.secondary',
                     }}
                     >
-                    {`${t(card.description).slice(0, 200)}...` }
+                    {t(card.description)}
                     </Typography>
                 </CardContent>
               </CardActionArea>
@@ -137,6 +140,7 @@ function ServicesCards() {
           </Grid>
         ))}
       </Grid>
+      
     </Box>
   );
 }
