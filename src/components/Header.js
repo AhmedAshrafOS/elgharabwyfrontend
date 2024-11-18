@@ -78,11 +78,12 @@ const CustomButtonTwo = styled(Button)({
   textAlign: "center",
   backgroundColor: "var(--buttons-color)",
   position: "relative",
-  padding: "1vw 1vw",
-  fontSize:".7rem",
+
+  padding: "1vw 2vw",
+  fontSize:".6rem",
   overflow: "hidden",
   fontFamily: "var(--font-family)",
-
+  
 
 });
 
@@ -269,13 +270,13 @@ function ResponsiveAppBar() {
               />
             </Box>
             <Box sx={{
-                width: "20%",
+                 width: "20%",
                 flexGrow: 1,
                 display: { xs: "flex", md: "none" },
       
                 
               }}>
-                <CustomButtonTwo onClick={handleBookingRedirect} >{t("book")}</CustomButtonTwo>
+                <CustomButtonTwo onClick={handleBookingRedirect} >{t("bookSmall")}</CustomButtonTwo>
             </Box>
             {/*  Middle Nav*/}
             <Box

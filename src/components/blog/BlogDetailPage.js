@@ -24,10 +24,11 @@ const BlogContentPage = () => {
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
-        p={3}
+        
+        p={{xs:0,md:2}}
       >
         {/* All Blogs / Blog Title */}
-        <Box sx={{ width: { xs: "100%", sm: "85%", md: "70%" } }}>
+        <Box sx={{ width: { xs: "90%", sm: "85%", md: "70%" } }}>
           <Box alignSelf={"flex-start"} mb={2}>
             <Link
               component={RouterLink}

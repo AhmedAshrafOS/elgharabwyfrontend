@@ -7,7 +7,7 @@ i18n.use(initReactI18next).init({
       translation: {
         welcome: "Welcome to ElGharabwy Clinic",
         book:"Book Appointment",
-
+        bookSmall:"Book",
         slideTextOne: "Discover our exceptional therapy services",
         slideTextTwo: "Best Therpay Clinc in Egypt",
         slideTextThree: "Your care is our priority",
@@ -86,6 +86,7 @@ i18n.use(initReactI18next).init({
       translation: {
         welcome: "مرحبًا بكم في عيادة الغرباوي",
         book:"احجز موعد",
+        bookSmall:"احجز موعد",
 
         slideTextOne:"تعرف على خدماتنا المتميزة في العلاج الطبيعي",
         slideTextTwo: "رعايتك الصحية تبدأ هنا",

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap');
 :root {
+ 
   --primary-color: #031936; /**/
   --second-color: #A4B8C4;
   --third-color: #D1E0E8;
@@ -21,6 +22,9 @@
   /* Replace with your English font */
   --font-ar: "Cairo", sans-serif;
   --font-family: var(--font-ar);
+
+  /*for silder things */
+  --test: 60vh;
 }
 
 ::-webkit-scrollbar{
@@ -36,6 +40,11 @@
   pointer-events: none;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --test: 30vh; /* Smaller height for mobile */
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -70,6 +79,8 @@
     transform: rotate(360deg);
   }
 }
+
+
 
 .header{
   background-color:#fff;

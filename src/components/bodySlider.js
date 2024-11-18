@@ -39,7 +39,8 @@ export const BodySlider = () => {
     return(
         <AutoplaySlider
         style={{ 
-            "--slider-height-percentage": "30%", "--slider-transition-duration": "554ms", "--organic-arrow-thickness": "5px",
+          "--slider-height-percentage":"var(--test)",
+            "--slider-transition-duration": "554ms", "--organic-arrow-thickness": "5px",
             "--organic-arrow-border-radius": "30px",
             "--organic-arrow-height": "29px",
             "--organic-arrow-color": "var(--primary-color)",
@@ -72,7 +73,7 @@ export const BodySlider = () => {
       </Box>
 
       {/* Slide 2 */}
-      <Box sx={{ display: "flex" }} data-src={slide2}>
+      <Box sx={{ display: "flex"  }} data-src={slide2}>
         <Slide direction="down" in={activeSlides[1]} mountOnEnter unmountOnExit timeout={2000}>
           <Typography sx={{ fontFamily:"var(--font-family)",color: "var(--text-third-color)", fontSize: {xs: '1.8rem', sm: '1.8rem',md: '4rem'}, zIndex: 2, position: "relative" }}>
             {t('slideTextTwo')}

@@ -49,7 +49,7 @@ function ServicesCards() {
       >
         <Typography
           sx={{
-            fontSize: { xs: '2.1rem', md: '3rem' },
+            fontSize: { xs: '1.7rem', md: '3rem' },
             textAlign: 'center',
             color: 'var(--primary-color)',
           }}
@@ -60,7 +60,7 @@ function ServicesCards() {
         <img id="services-section" src={sectionMid} alt="section" />
         <Typography
           sx={{
-            fontSize: { xs: '1.1rem', md: '1.4rem' },
+            fontSize: { xs: '1.0rem', md: '1.4rem' },
             textAlign: 'center',
             color: 'var(--primary-color)',
           }}
