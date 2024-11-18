@@ -10,7 +10,7 @@ const ViewBookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get("https://content-reprieve-production.up.railway.app/bookings"); // Replace with your actual API endpoint
+        const response = await axios.get("https://content-reprieve-production.up.railway.app/api/bookings"); // Replace with your actual API endpoint
         setBookings(response.data); // Axios automatically parses JSON data
       } catch (error) {
         console.error("Error fetching bookings:", error);
@@ -23,7 +23,7 @@ const ViewBookings = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://content-reprieve-production.up.railway.app/bookings/${id}`);
+      await axios.delete(`https://content-reprieve-production.up.railway.app/api/bookings/${id}`);
       setBookings((prevBookings) => prevBookings.filter((booking) => booking.id !== id));
     } catch (error) {
       console.error("Error deleting booking:", error);
