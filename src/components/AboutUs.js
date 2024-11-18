@@ -50,13 +50,13 @@ const AboutUs = () => {
                 <Typography minWidth={50}   sx={{fontFamily:"var(--font-family)", color: 'var(--text-color)', fontSize: {xs:".9rem",sm:"1.1rem",md:"1.2rem"}}}>
                 {t("docDetail")}
                 </Typography>
-                <Button  onClick={handleBookingRedirect}   sx={{maxWidth:300,fontFamily:"var(--font-family)",  fontSize: {xs:".7rem",sm:".9rem",md:"1.2rem"},   backgroundColor: 'var(--buttons-color)',
+                <Button  onClick={handleBookingRedirect}   sx={{maxWidth:300,fontFamily:"var(--font-family)",  fontSize: {xs:".8rem",sm:".9rem",md:"1.2rem"},   backgroundColor: 'var(--buttons-color)',
                   color: 'var(--buttons-text-color)',  transition: '0.5s',
                       '&:hover': {
                       color:'var(--buttons-text-hover-color)',
                       backgroundColor: 'var(--buttons-hover-color)', },
                       textDecoration: 'none',
-                      padding: {xs:'2% 4%', sm:"3% 5%", md:"2% 4%"},
+                      padding: {xs:'3% 5%', sm:"3% 5%", md:"2% 4%"},
                       borderRadius: '6px',
                       marginTop: '2%',
                       

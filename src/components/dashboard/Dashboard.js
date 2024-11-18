@@ -1,33 +1,74 @@
 import React from 'react';
-import { Button, Box, Drawer, List, ListItem, ListItemText, Collapse, Typography } from '@mui/material';
+import {
+    Button,
+    Box,
+    Drawer,
+    List,
+    ListItem,
+    ListItemText,
+    Collapse,
+    Typography,
+    IconButton
+} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import ViewBlogs from './ViewBlogs';
 import ViewBookings from './ViewBooking';
 import ManageBookings from './ManageBookings';
 import ManageBlogs from './ManageBlogs';
 
 const Dashboard = () => {
-    const [openBlogs, setOpenBlogs] = React.useState(true);
-    const [openBookings, setOpenBookings] = React.useState(true);
+    const [openBlogs, setOpenBlogs] = React.useState(true); // Blogs section state
+    const [openBookings, setOpenBookings] = React.useState(true); // Bookings section state
+    const [drawerOpen, setDrawerOpen] = React.useState(false); // Drawer open/close state
+    const [activeComponent, setActiveComponent] = React.useState("viewBlogs"); // Active component
     const navigate = useNavigate();
-    const [activeComponent, setActiveComponent] = React.useState("viewBlogs");
+
+    const isMobile = window.innerWidth <= 600; // Responsive check for mobile
 
     const showViewBlogs = () => setActiveComponent('viewBlogs');
     const showViewBookings = () => setActiveComponent('viewBookings');
     const showCreateBlogs = () => setActiveComponent('createBlogs');
     const showCreateBookings = () => setActiveComponent('createBooking');
 
+    // Toggle drawer for mobile
+    const toggleDrawer = () => setDrawerOpen(!drawerOpen);
+
     return (
-        <Box display="flex" height="100vh" bgcolor="#1E2A38" >
+        <Box display="flex" height="100vh">
+            {/* Mobile Menu Button */}
+            <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={toggleDrawer}
+                sx={{
+                    display: { xs: 'block', sm: 'none' }, // Visible only on mobile
+                    position: 'absolute',
+                    top: 16,
+                    left: 16,
+                    color: '#fff',
+                    zIndex: 1300,
+                }}
+            >
+                <MenuIcon />
+            </IconButton>
+
             {/* Sidebar Drawer */}
             <Drawer
-                variant="permanent"
+                variant={isMobile ? "temporary" : "permanent"} // Responsive variant
+                open={drawerOpen || !isMobile} // Always open for desktop
+                onClose={toggleDrawer} // Close for mobile
+                ModalProps={{
+                    keepMounted: true, // Better performance on mobile
+                }}
                 sx={{
                     flexShrink: 0,
-                    [`& .MuiDrawer-paper`]: { 
-                        width: 260, 
+                    [`& .MuiDrawer-paper`]: {
+                        width: 260,
                         boxSizing: 'border-box',
                         backgroundColor: '#1E2A38',
                         color: '#fff',
@@ -35,7 +76,27 @@ const Dashboard = () => {
                     },
                 }}
             >
-                <Typography variant="h5" align="center" sx={{ color: "#00ACC1", fontWeight: 600, mb: 2 }}>
+                {/* Close Icon for Mobile */}
+                {isMobile && drawerOpen && (
+                    <IconButton
+                        onClick={toggleDrawer}
+                        sx={{
+                            display: 'block',
+                            position: 'absolute',
+                            top: 10,
+                            right: 10,
+                            color: '#fff',
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
+                )}
+
+                <Typography
+                    variant="h5"
+                    align="center"
+                    sx={{ color: "#00ACC1", fontWeight: 600, mb: 2 }}
+                >
                     Admin Dashboard
                 </Typography>
                 <List>
@@ -96,12 +157,15 @@ const Dashboard = () => {
             <Box
                 flex={1}
                 display="flex"
-
                 justifyContent="center"
                 alignItems="center"
-                marginLeft={30}
-
-                sx={{height: '100vh', overflowY:"auto", backgroundColor: '#263447', padding: 3 }}
+                sx={{
+                    marginLeft: isMobile ? 0 : 30, // Adjust for desktop drawer
+                    height: '100vh',
+                    overflowY: "auto",
+                    backgroundColor: '#263447',
+                    padding: 3,
+                }}
             >
                 <Box
                     width="100%"
@@ -112,7 +176,7 @@ const Dashboard = () => {
                     bgcolor="#1E2A38"
                     textAlign="center"
                     color="#ffffff"
-                    sx={{overflow: 'auto', maxHeight: '100%'}}
+                    sx={{ overflow: 'auto', maxHeight: '100%' }}
                 >
                     {/* Render components based on active selection */}
                     {activeComponent === 'viewBlogs' && (

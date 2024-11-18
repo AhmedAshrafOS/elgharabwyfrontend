@@ -46,7 +46,7 @@ const ManageBookings = () => {
 
   return (
     <Box
-      width="100%"
+    
       maxWidth="500px"
       mx="auto"
       p={4}

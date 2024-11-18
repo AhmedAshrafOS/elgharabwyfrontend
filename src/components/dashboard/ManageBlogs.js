@@ -169,7 +169,7 @@ const ManageBlogs = () => {
       sx={{
 
         p: 4,
-        minWidth: 600,
+    
         maxWidth: 900,
         borderRadius: 2,
         bgcolor: '#1E2A38',
