@@ -5,9 +5,9 @@ import HomePage from './components/HomePage';
 import BlogPage from './components/blog/BlogPage';
 import BlogDetailPage from './components/blog/BlogDetailPage';
 
-import AdminLogin from './components/dashboard/admin/AdminLogin';
+import AdminLogin from './components/dashboard/AdminLogin';
 import Dashboard from './components/dashboard/Dashboard'; 
-import ProtectedRoute from './components/dashboard/admin/ProtectedRoute';
+import ProtectedRoute from './components/dashboard/ProtectedRoute';
 
 import BookingAppointment from "./components/BookingAppointment";
 

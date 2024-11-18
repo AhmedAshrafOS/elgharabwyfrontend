@@ -3,10 +3,10 @@ import { Button, Box, Drawer, List, ListItem, ListItemText, Collapse, Typography
 import { useNavigate } from 'react-router-dom';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ViewBlogs from './blog/ViewBlogs';
-import ViewBookings from './booking/ViewBooking';
-import ManageBookings from './booking/ManageBookings';
-import ManageBlogs from './blog/ManageBlogs';
+import ViewBlogs from './ViewBlogs';
+import ViewBookings from './ViewBooking';
+import ManageBookings from './ManageBookings';
+import ManageBlogs from './ManageBlogs';
 
 const Dashboard = () => {
     const [openBlogs, setOpenBlogs] = React.useState(true);
