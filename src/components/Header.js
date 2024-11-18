@@ -3,7 +3,13 @@ import * as React from "react";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
+import { Link,useNavigate, useLocation } from "react-router-dom";
+import ReactCountryFlag from "react-country-flag";
+import logo from "../assets/main_logo.png";
+import {  styled } from "@mui/system";
+import { useTranslation } from "react-i18next";
+
+
 import {
   AppBar,
   Box,
@@ -14,11 +20,7 @@ import {
   Button,
 } from "@mui/material";
 
-import ReactCountryFlag from "react-country-flag";
-import logo from "../assets/main_logo.png";
-import {  styled } from "@mui/system";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+
 
 const pages = [
   { 1: "home", 2: "/" },
@@ -90,11 +92,22 @@ const CustomButtonTwo = styled(Button)({
 function ResponsiveAppBar() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+  const location = useLocation();
+
   const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      
-      section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the section
+    const handleScroll = () => {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    if (location.pathname !== "/") {
+      navigate("/", { replace: true });
+      // Delay scrolling to allow time for navigation
+      setTimeout(() => handleScroll(), 100); // Adjust delay as needed
+    } else {
+      handleScroll();
     }
   };
 
@@ -109,6 +122,9 @@ function ResponsiveAppBar() {
   };
   const handleBookingRedirect = () => {
     navigate("/booking-appointment"); // Redirect to the BookingAppointment component
+  };
+  const handleHomeRedirect = () => {
+    navigate("/"); 
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -263,11 +279,22 @@ function ResponsiveAppBar() {
                
               }}
             >
-              <img
+               <img
+
                 src={logo}
-                alt="Logo"
-                style={{ height: "100px"}}
-              />
+                  alt="Logo"
+                  style={{
+                    cursor:"pointer",
+                    height: "100px",
+                    width: "auto",
+                    transition: "transform 0.2s, opacity 0.2s", // Adds smooth animation effects
+                  }}
+                  onClick={handleHomeRedirect}
+                  onMouseDown={(e) => (e.target.style.opacity = 0.7)} // Dim image when clicked
+                  onMouseUp={(e) => (e.target.style.opacity = 1)} // Restore opacity on release
+                  onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")} // Slight zoom on hover
+                  onMouseOut={(e) => (e.target.style.transform = "scale(1)")} 
+                />
             </Box>
             <Box sx={{
                  width: "20%",
@@ -292,15 +319,26 @@ function ResponsiveAppBar() {
             >
               <Box
                 component="a"
-                href="#app-bar-with-responsive-menu"
+                
                 sx={{
                   marginTop: "3px",
                 }}
               >
                 <img
+
                   src={logo}
-                  alt="Logo"
-                  style={{ height: "150px", width: "auto" }}
+                    alt="Logo"
+                    style={{
+                      cursor:"pointer",
+                      height: "150px",
+                      width: "auto",
+                      transition: "transform 0.2s, opacity 0.2s", // Adds smooth animation effects
+                    }}
+                    onClick={handleHomeRedirect}
+                    onMouseDown={(e) => (e.target.style.opacity = 0.7)} // Dim image when clicked
+                    onMouseUp={(e) => (e.target.style.opacity = 1)} // Restore opacity on release
+                    onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")} // Slight zoom on hover
+                    onMouseOut={(e) => (e.target.style.transform = "scale(1)")} 
                 />
               </Box>
 

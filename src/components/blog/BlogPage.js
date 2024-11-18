@@ -15,9 +15,15 @@ const BlogPage = () => {
   const blogsPerPage = 12;
   const { t } = useTranslation();
 
-
-  useEffect(() => {
  
+    const handleScroll = () => {
+      const section = document.getElementById("nevigateUp");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+  useEffect(() => {
+    
     const fetchBlogs = async () => {
       try {
 
@@ -29,6 +35,7 @@ const BlogPage = () => {
         }
         const data = await response.json();
         setBlogs(data); // Update the blogs state with data from the API
+        handleScroll()
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
@@ -56,10 +63,10 @@ const BlogPage = () => {
 
       <Header />
       
-      <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column" p={3}>
+      <Box id="nevigateUp" display="flex" justifyContent="center" alignItems="center" flexDirection="column" p={3}>
       <Box sx={{display:'flex', flexDirection:"column", justifyContent:"center", alignContent:"center" ,alignItems:"center"}}>
         <Typography   sx={{ fontSize:{xs:"3rem",md:"3rem"}, textAlign:"center" ,color :"var(--text-second-color)"}} gutterBottom>{t("blogHeader")}</Typography>    
-         <img src={sectionMid} alt="img"></img>
+         <img  src={sectionMid} alt="img"></img>
         <Typography sx={{ fontSize:{xs:"1.1rem",md:"1.1rem"}, textAlign:"center" ,color :"var(--text-second-color)"}} gutterBottom>{t("blogSecond")}</Typography>
       </Box>
 

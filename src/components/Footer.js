@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, List, ListItem, ListItemIcon, ListItemText, IconButton, Link } from "@mui/material";
+import { Box, Typography, List, ListItem, ListItemIcon,  IconButton} from "@mui/material";
 import { styled } from "@mui/system";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -7,7 +7,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import logo from "../assets/main_logo.png";
 import { useTranslation } from "react-i18next";
-
+import { Link } from "react-router-dom";
 const HoverListItem = styled(ListItem)({
   transition: "transform 0.3s ease",
   "&:hover": {
@@ -75,14 +75,12 @@ const Footer = () => {
             >
               {t("links")}
             </Typography>
-            <List>
-              <HoverListItem>
+            <List sx={{display:"flex" , flexDirection:"column",alignItems:"center"}} >
+              <HoverListItem sx={{display:"flex" ,justifyContent:"center"}}>
                 <ListItemIcon>
                   <ChevronRightIcon />
                 </ListItemIcon>
-                <ListItemText
-                  primary={
-                    <Link
+                  <Link
                       to="/"
                       style={{
                         textDecoration: "none",
@@ -92,43 +90,54 @@ const Footer = () => {
                     >
                       {t("home")}
                     </Link>
-                  }
-                />
               </HoverListItem>
-              <HoverListItem>
+              <HoverListItem sx={{display:"flex" ,justifyContent:"center"}}>
                 <ListItemIcon>
                   <ChevronRightIcon />
                 </ListItemIcon>
-                <ListItemText
-                  primary={<Typography style={{ fontFamily: "var(--font-family)" }}>{t("aboutUs")}</Typography>}
-                />
-              </HoverListItem>
-              <HoverListItem>
-                <ListItemIcon>
-                  <ChevronRightIcon />
-                </ListItemIcon>
-                <ListItemText
-                  primary={<Typography style={{ fontFamily: "var(--font-family)" }}>{t("services")}</Typography>}
-                />
-              </HoverListItem>
-              <HoverListItem>
-                <ListItemIcon>
-                  <ChevronRightIcon />
-                </ListItemIcon>
-                <ListItemText
-                  primary={
-                    <Link
-                      to="/blogs"
+                <Link
+                      to="/"
                       style={{
                         textDecoration: "none",
                         color: "black",
                         fontFamily: "var(--font-family)",
                       }}
                     >
+                    {t("aboutUs")}  
+                  </Link>
+              </HoverListItem>
+              <HoverListItem sx={{display:"flex" ,justifyContent:"center"}}>
+                <ListItemIcon>
+                  <ChevronRightIcon />
+                </ListItemIcon>
+
+                <Link
+                      to="/"
+                      style={{
+                        textDecoration: "none",
+                        color: "black",
+                        fontFamily: "var(--font-family)",
+                      }}
+                    >
+                    {t("services")}
+                  </Link>
+  
+              </HoverListItem>
+              <HoverListItem sx={{display:"flex" ,justifyContent:"center"}}>
+                <ListItemIcon>
+                  <ChevronRightIcon />
+                </ListItemIcon>
+                  <Link
+                      to="/blogs"
+                      style={{
+                        textDecoration: "none",
+                        cursor:"pointer",
+                        color: "black",
+                        fontFamily: "var(--font-family)",
+                      }}
+                    >
                       {t("blogs")}
                     </Link>
-                  }
-                />
               </HoverListItem>
             </List>
           </Box>
